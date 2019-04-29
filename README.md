@@ -105,15 +105,18 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | --- | --- |
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
-| | *Insert your diagram here...* |
+| | *![picture](C:\RES\Teaching-HEIGVD-RES-2019-Labo-Orchestra\Capture.PNG)* |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *Enter your response here...* |
+| | *The musicians are going to send UDP datagrams when they are playing* |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | *Enter your response here...* |
+| | *The auditor are going to listen for UDP datagrams, they send information to the server in JSON format* |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* |
+| | *We should send the uuid (define the musician), his instrument or the sound it does* |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *Enter your response here...* |
+| | *For the sender we just need a structure with the name and the instrument (eventually the sound it does), we won't update it.
+For the receiver, the structure is a list of the different musician with the last time you received a sound.
+the datagramm will update every time the receiver receive a sender (add it or change the time) or when he
+doesn't have news of a musician for 5 seconds.* |
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -121,9 +124,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-| | *Enter your response here...*  |
+| | *You can do something like this : var json_text = JSON.stringify(your_object);*  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | *Node Package Manager : 
+
+Online repositories for node.js packages/modules which are searchable on search.nodejs.org
+
+Command line utility to install Node.js packages, do version management and dependency management of Node.js packages.*  |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *Enter your response here...*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
